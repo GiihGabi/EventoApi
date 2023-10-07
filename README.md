@@ -5,9 +5,35 @@ O nosso projeto foi pensado em um sistema básico de vendas de ingressos de even
 
 #Para Facilitar
 - INSERIR COMPRADOR
-
+{
+  "nome": "Giih",
+  "sobrenome": "Gabi",
+  "email": "gi@gmail.com",
+  "ra": 123123,
+  "senha": "123",
+  "dataCadastro": "2023-10-07T14:30:49.038Z",
+  "ativo": true
+}
 
 - INSERIR EVENTOS
+{
+  "nomeEvento": "Unimar",
+  "descricao": "Aberta",
+  "valorIngresso": 20,
+  "localEvento": "Unimar",
+  "dataEvento": "2023-10-07T14:34:32.785Z",
+  "qtdLimiteIngresso": 10,
+  "ativo": true
+}
 
-
+{
+  "nomeEvento": "Bootcamp",
+  "descricao": "JovemProgramador",
+  "valorIngresso": 50,
+  "localEvento": "Unimar",
+  "dataEvento": "2023-10-07T14:34:32.785Z",
+  "qtdLimiteIngresso": 10,
+  "ativo": true
+}
 - INSERIR VENDA
+2023-10-07T14:34:32.785
