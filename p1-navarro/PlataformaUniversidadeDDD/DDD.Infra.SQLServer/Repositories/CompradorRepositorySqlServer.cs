@@ -54,7 +54,7 @@ namespace DDD.Infra.SQLServer.Repositories
             }
             catch (Exception ex)
             {
-                //log exception
+                
 
             }
         }
