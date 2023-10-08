@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DDD.Infra.SQLServer.Migrations
 {
     [DbContext(typeof(SqlContext))]
-    [Migration("20231007142908_eventoDB")]
-    partial class eventoDB
+    [Migration("20231008224548_eventosdb1")]
+    partial class eventosdb1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

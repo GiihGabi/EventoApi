@@ -33,26 +33,45 @@ namespace DDD.Infra.SQLServer.Repositories
         {
             return _context.Venda.ToList();
         }
-
-        //public void InsertVenda(Venda venda)
+        //public Venda InsertVenda(int idComprador, int idEvento, DateTime date, int qndIngresso)
         //{
+        //    var comprador = _context.Compradores.First(i => i.UserId == idComprador);
+        //    var evento = _context.Eventos.First(i => i.IdEventos == idEvento);
+
+        //    var venda = new Venda
+        //    {
+        //        Compradores = comprador,
+        //        Eventos = evento,
+        //        Data = date,
+        //        QtdIngresso = qndIngresso
+
+        //    };
+
         //    try
         //    {
-        //        _context.Venda.Add(venda);
+
+        //        _context.Add(venda);
         //        _context.SaveChanges();
+
         //    }
         //    catch (Exception ex)
         //    {
-        //        //log exception
-
+        //        var msg = ex.InnerException;
+        //        throw;
         //    }
+
+        //    return venda;
         //}
-
-
         public Venda InsertVenda(int idComprador, int idEvento, DateTime date, int qndIngresso)
         {
+
             var comprador = _context.Compradores.First(i => i.UserId == idComprador);
             var evento = _context.Eventos.First(i => i.IdEventos == idEvento);
+
+            if (evento.QtdLimiteIngresso < qndIngresso)
+            {
+                throw new Exception("Não há ingressos suficientes para essa venda.");
+            }
 
             var venda = new Venda
             {
@@ -60,15 +79,14 @@ namespace DDD.Infra.SQLServer.Repositories
                 Eventos = evento,
                 Data = date,
                 QtdIngresso = qndIngresso
-                
             };
 
             try
             {
+                evento.QtdLimiteIngresso -= qndIngresso;
 
                 _context.Add(venda);
                 _context.SaveChanges();
-
             }
             catch (Exception ex)
             {
